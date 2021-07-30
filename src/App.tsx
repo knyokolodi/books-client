@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import NavBar from './components/NavBar/NavBar';
+import SideBar from './components/SideBar/SideBar';
+import Books from './components/Books/Books';
+import About from './components/About/About';
+import BookDetails from './components/Books/BookDetails/BookDetails';
+import AddBook from './components/Books/AddBook/AddBook';
+import EditBook from './components/Books/EditBook/EditBook';
 
-function App() {
+import GlobalStyle from './GlobalStyles';
+
+const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSideMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <GlobalStyle />
+      <NavBar toggle={toggleSideMenu} />
+      <SideBar isOpen={isOpen} toggle={toggleSideMenu} />
+      <Route path='/' exact component={Books} />
+      <Route path='/about' exact component={About} />
+      <Route path='/book/:id' exact component={BookDetails} />
+      <Route path='/add-book' exact component={AddBook} />
+      <Route path='/edit-book/:id' exact component={EditBook} />
+    </Router>
   );
-}
+};
 
 export default App;
