@@ -1,9 +1,10 @@
+import { Puff } from 'react-loading-icons';
 import { LoaderContainer, LoaderImage } from './Loader.style';
 
 const Loader = () => {
   return (
     <LoaderContainer>
-      <LoaderImage src='loader.gif'></LoaderImage>
+      <Puff />
     </LoaderContainer>
   );
 };
