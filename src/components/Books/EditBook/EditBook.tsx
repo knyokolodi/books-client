@@ -51,7 +51,7 @@ const EditBook = () => {
   const onSubmit: SubmitHandler<IBookForm> = async (data: IBookForm) => {
     const { title, image_url, description } = data;
     try {
-      const results = await axios.patch(`${process.env.REACT_APP_API_URL}/books`, {
+      const results = await axios.patch(`${process.env.REACT_APP_API_URL}/api/books`, {
         id: book.id,
         title,
         image_url,

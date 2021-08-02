@@ -14,7 +14,7 @@ const Books = () => {
   useEffect(() => {
     const getBooks = async () => {
       try {
-        const results = await axios.get(`${process.env.REACT_APP_API_URL}/books`);
+        const results = await axios.get(`${process.env.REACT_APP_API_URL}/api/books`);
         const { books } = results.data;
         setBooks(books);
         setLoading(false);

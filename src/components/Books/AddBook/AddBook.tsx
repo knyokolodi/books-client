@@ -54,7 +54,7 @@ const AddBook = () => {
   const onSubmit: SubmitHandler<IBookForm> = async (data: IBookForm) => {
     const { title, image_url, description } = data;
     try {
-      const results = await axios.post(`${process.env.REACT_APP_API_URL}/books`, {
+      const results = await axios.post(`${process.env.REACT_APP_API_URL}/api/books`, {
         title,
         image_url,
         description,

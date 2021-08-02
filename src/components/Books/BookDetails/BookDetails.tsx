@@ -25,7 +25,7 @@ const BookDetails = () => {
   useEffect(() => {
     const getBook = async () => {
       try {
-        const results = await axios.get(`${process.env.REACT_APP_API_URL}/books/${id}`);
+        const results = await axios.get(`${process.env.REACT_APP_API_URL}/api/books/${id}`);
         const { book } = results.data;
 
         setBook(book);
@@ -43,7 +43,7 @@ const BookDetails = () => {
     try {
       const isConfirm = window.confirm('Want to delete?');
       if (isConfirm) {
-        const results = await axios.delete(`${process.env.REACT_APP_API_URL}/books/${id}`);
+        const results = await axios.delete(`${process.env.REACT_APP_API_URL}/api/books/${id}`);
         const { success } = results.data;
 
         if (success === true) {
