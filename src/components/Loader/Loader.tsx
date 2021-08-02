@@ -1,5 +1,5 @@
 import { Puff } from 'react-loading-icons';
-import { LoaderContainer, LoaderImage } from './Loader.style';
+import { LoaderContainer } from './Loader.style';
 
 const Loader = () => {
   return (
